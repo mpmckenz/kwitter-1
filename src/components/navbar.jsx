@@ -26,6 +26,12 @@ class Navbar extends React.Component {
           <li>
             <a href="/">Logout</a>
           </li>
+          <li>
+            <a href="/">TEST</a>
+          </li>
+          <li>
+            <a href="/">TEST1</a>
+          </li>
           <br />
           <li>
             <img src={octogif} alt="" />
