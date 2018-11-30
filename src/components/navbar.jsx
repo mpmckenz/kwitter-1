@@ -1,5 +1,6 @@
 import React from "react";
 import "../styling/navBar.css";
+import { Route, Switch } from "react-router-dom";
 import octogif from "../octo1.gif";
 
 class Navbar extends React.Component {
@@ -9,7 +10,7 @@ class Navbar extends React.Component {
         <ul className="navBar">
           {/* Use ternary to assign className="isVisible" */}
           <li>
-            <a href="/">Login</a>
+            <a href="/Login">Login</a>
           </li>
           <li>
             <a href="/posts">News Feeds</a>

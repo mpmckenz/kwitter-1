@@ -3,12 +3,22 @@ import React, { Component } from "react";
 export default class Login extends Component {
   render() {
     return (
-      <div>
+      
         <div>
-          {/* handleLoginSubmit renders login page */}
-          <input onSubmit={this.handleLoginSubmit} />
+        <form>
+  <label>
+    Username:
+    <input type="text" name="name" />
+  </label>
+  <label>
+    Password:
+    <input type="text" name="name" />
+  </label>
+  <input type="submit" value="Submit" onSubmit={this.handleLoginSubmit} />
+  {/* handleLoginSubmit renders login page */}
+</form>   
         </div>
-      </div>
+      
     );
   }
 }
