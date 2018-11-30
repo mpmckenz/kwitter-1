@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import Navbar from "./Navbar.jsx";
+import Navbar from "./Navbar.js";
 
 class App extends Component {
   render() {
