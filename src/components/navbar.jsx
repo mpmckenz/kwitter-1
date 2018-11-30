@@ -1,5 +1,6 @@
 import React from "react";
 import "../styling/navBar.css";
+import octogif from "../octo1.gif";
 
 class Navbar extends React.Component {
   render() {
@@ -26,16 +27,11 @@ class Navbar extends React.Component {
             <a href="/">Logout</a>
           </li>
           <br />
-          {/* <ul> */}
           <li>
-            <img
-              src="https://im4.ezgif.com/tmp/ezgif-4-8578d02997f9.gif"
-              alt=""
-            />
+            <img src={octogif} alt="" />
           </li>
           <li className="navTitle">Kwitter</li>
         </ul>
-        {/* </ul> */}
       </div>
     );
   }
