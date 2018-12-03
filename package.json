@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "connected-react-router": "^5.0.1",
+    "html-to-react": "^1.3.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",

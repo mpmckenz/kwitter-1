@@ -3,22 +3,28 @@ import { Button, Form, Header } from 'semantic-ui-react';
 import "../styling/login.css"
 
 export default class Login extends Component {
+
+  state = {
+    username: "",
+    password: ""
+  }
+
   render() {
     return (
       <div className="login">
-      <Header as='h2' color='blue' textAlign='center'>
-              Log-in to Kwitter
+      <Header className='header' as='h2'>
+              Sign In
             </Header>
       <Form size="large">
     <Form.Field>
       
-      <input placeholder='Username' />
+      <input className='input' placeholder='Username' fluid required autofocus />
     </Form.Field>
     <Form.Field>
       
-      <input placeholder='Password' />
+      <input className='input' placeholder='Password' type="password" fluid required autofocus  />
     </Form.Field>
-    <Button type='submit'>Submit</Button>
+    <Button className='submit-button' type='submit'>Submit</Button>
   </Form>
         </div>
       

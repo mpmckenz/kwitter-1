@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import Navbar from "./navbar.jsx";
-import Login from "./Login.jsx";
+import Navbar from "./navbar.js";
+import Login from "./Login.js";
 
 class App extends Component {
   render() {
