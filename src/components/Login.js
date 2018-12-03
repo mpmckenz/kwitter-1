@@ -1,11 +1,21 @@
 import React, { Component } from "react";
 import { Button, Form, Header } from 'semantic-ui-react';
 import "../styling/login.css"
+import { userLogin } from "./action.js"
+import { connect } from 'react-redux';
 
-export default class Login extends Component {
+class Login extends Component {
 
   handleSubmitLogin = () => {
     this.props.userLogin(this.state.username, this.state.password)
+  }
+
+  handleChangeUser = (event) => {
+    this.setState({username: event.target.value})
+  }
+
+  handleChangePassword = (event) => {
+    this.setState({password: event.target.value}) 
   }
 
   state = {
@@ -22,11 +32,11 @@ export default class Login extends Component {
       <Form size="large">
     <Form.Field>
       
-      <input className='input' placeholder='Username' value= {this.state.username} fluid required autofocus />
+      <input className='input' placeholder='Username' value= {this.state.username} onChange= {this.handleChangeUser} fluid required autofocus />
     </Form.Field>
     <Form.Field>
       
-      <input className='input' placeholder='Password' type="password" value= {this.state.password} fluid required autofocus  />
+      <input className='input' placeholder='Password' type="password" onChange= {this.handleChangePassword}  value= {this.state.password} fluid required autofocus  />
     </Form.Field>
     <Button className='submit-button' type='submit' onSubmit={this.handleLoginSubmit} >Submit</Button>
   </Form>
@@ -35,3 +45,18 @@ export default class Login extends Component {
     );
   }
 }
+
+const mapStateToProps = ({auth , register}) => ({
+  auth,
+  register
+});
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    userLogin: (username, password) => {
+      dispatch(userLogin(username, password))
+    },
+  }
+}
+
+export default connect( mapStateToProps , mapDispatchToProps )(Login)
