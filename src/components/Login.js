@@ -4,6 +4,10 @@ import "../styling/login.css"
 
 export default class Login extends Component {
 
+  handleSubmitLogin = () => {
+    this.props.userLogin(this.state.username, this.state.password)
+  }
+
   state = {
     username: "",
     password: ""
@@ -18,13 +22,13 @@ export default class Login extends Component {
       <Form size="large">
     <Form.Field>
       
-      <input className='input' placeholder='Username' fluid required autofocus />
+      <input className='input' placeholder='Username' value= {this.state.username} fluid required autofocus />
     </Form.Field>
     <Form.Field>
       
-      <input className='input' placeholder='Password' type="password" fluid required autofocus  />
+      <input className='input' placeholder='Password' type="password" value= {this.state.password} fluid required autofocus  />
     </Form.Field>
-    <Button className='submit-button' type='submit'>Submit</Button>
+    <Button className='submit-button' type='submit' onSubmit={this.handleLoginSubmit} >Submit</Button>
   </Form>
         </div>
       
