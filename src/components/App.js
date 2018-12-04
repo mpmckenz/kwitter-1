@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
+
 import Navbar from "./Navbar.js";
 import Login from "./Login";
 // import Posts from "./Posts";
@@ -18,6 +19,7 @@ class App extends Component {
           {/* <Route path="/edit" render={() => <EditProfile />} /> */}
           {/* <Route path="/home" render={() => <Homepage />} /> */}
         </Switch>
+
 
         {/* <Switch>
           <Route path="*" component={Navbar} />
