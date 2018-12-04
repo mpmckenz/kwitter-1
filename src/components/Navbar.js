@@ -1,6 +1,7 @@
 import React from "react";
 import "../styling/navBar.css";
 import octogif from "../octo1.gif";
+import { Link, Route, Switch } from "react-router-dom";
 
 class Navbar extends React.Component {
   render() {
@@ -9,22 +10,22 @@ class Navbar extends React.Component {
         <ul className="navBar">
           {/* Use ternary to assign className="isVisible" */}
           <li>
-            <a href="/">Login</a>
+            <Link to="/">Login</Link>
           </li>
           <li>
-            <a href="/posts">News Feeds</a>
+            <Link to="/posts">News Feeds</Link>
           </li>
           <li>
-            <a href="/edit">Edit Profile</a>
+            <Link to="/edit">Edit Profile</Link>
           </li>
           <li>
-            <a href="/home">Homepage</a>
+            <Link to="/home">Homepage</Link>
           </li>
           <li>
-            <a href="/register">Signup</a>
+            <Link to="/register">Signup</Link>
           </li>
           <li>
-            <a href="/">Logout</a>
+            <Link to="/">Logout</Link>
           </li>
           <br />
           <li>
