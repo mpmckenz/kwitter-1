@@ -4,6 +4,10 @@ import octogif from "../octo1.gif";
 import { Link, Route, Switch } from "react-router-dom";
 
 class Navbar extends React.Component {
+<<<<<<< HEAD
+=======
+  
+>>>>>>> origin/master
   render() {
     return (
       <div className="navWrapper">
