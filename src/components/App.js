@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 
-import Navbar from "./Navbar.js";
+import Navbar from "./navbar.js";
 import Login from "./Login";
 // import Posts from "./Posts";
 // import EditProfile from "./EditProfile";
