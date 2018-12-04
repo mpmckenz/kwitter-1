@@ -1,10 +1,7 @@
 import { push } from 'connected-react-router';
+import { IS_LOGGING_IN, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL } from './types'
 
-export const IS_LOGGING_IN = "IS_LOGGING_IN";
-export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
-export const USER_LOGIN_FAIL = "USER_LOGIN_FAIL";
-
-const api = 'https://kwitter-api.herokuapp.com/'
+const api = 'https://kwitter-api.herokuapp.com'
 
 export const userLogin = (username , password) => (dispatch) => {
    dispatch(isLoggingIn());
@@ -29,6 +26,7 @@ export const userLogin = (username , password) => (dispatch) => {
          dispatch(push('/home'))
        }else{
          dispatch(userLoginFail())
+         alert("Invalid username or password")
        }
      }).catch(error => dispatch(userLoginFail()))
    
