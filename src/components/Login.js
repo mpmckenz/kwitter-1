@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { Button, Form, Header } from 'semantic-ui-react';
 import "../styling/login.css"
-import { userLogin } from "./action.js"
-import { connect } from 'react-redux';
+import { connectRouter } from 'connected-react-router';
+import { userLogin } from './loginAction'
+
+
+
 
 class Login extends Component {
+
+  
 
   handleSubmitLogin = () => {
     this.props.userLogin(this.state.username, this.state.password)
@@ -32,11 +37,11 @@ class Login extends Component {
       <Form size="large">
     <Form.Field>
       
-      <input className='input' placeholder='Username' value= {this.state.username} onChange= {this.handleChangeUser} fluid required autofocus />
+      <input className='input' placeholder='Username' value= {this.state.username} onChange= {this.handleChangeUser} required autoFocus />
     </Form.Field>
     <Form.Field>
       
-      <input className='input' placeholder='Password' type="password" onChange= {this.handleChangePassword}  value= {this.state.password} fluid required autofocus  />
+      <input className='input' placeholder='Password' type="password" onChange= {this.handleChangePassword}  value= {this.state.password} required autoFocus  />
     </Form.Field>
     <Button className='submit-button' type='submit' onSubmit={this.handleLoginSubmit} >Submit</Button>
   </Form>
@@ -59,4 +64,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect( mapStateToProps , mapDispatchToProps )(Login)
+export default connectRouter( mapStateToProps , mapDispatchToProps )(Login)
