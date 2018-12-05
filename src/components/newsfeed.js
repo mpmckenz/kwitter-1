@@ -1,16 +1,43 @@
 import React, { Component } from 'react';
-import { Button, Form, Header } from 'semantic-ui-react';
+import { Header,
+  Container,
+  Sticky,
+  Modal,
+  Button,
+  Grid,
+  Card,
+  Divider
+}  from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 class Newsfeed extends React.Component {
     render () {
         return (
-            <div className="profile-left">
+            <div className="newsfeed">
       <Header className='header' as='h3'>
-              Profile
+              Tweets
             </Header>
+            <Container fluid>
+
+          
+          <Container style={{ marginTop: '2vh' }}>
+            <Grid centered>
+              <Grid.Row columns={2}>
+                <Grid.Column>
+                  <Container className="tweet">
+                  </Container>
+
+                  
+                </Grid.Column>
+
+                
+              </Grid.Row>
+            </Grid>
+          </Container>
+      </Container>
      
         </div>
+        
         )
     }
 }
