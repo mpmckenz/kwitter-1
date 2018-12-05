@@ -1,7 +1,4 @@
-export const REGISTER = "REGISTER";
-export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-export const REGISTER_FAIL = "REGISTER_FAIL";
-
+import { REGISTER, REGISTER_SUCCESS, REGISTER_FAIL, TO_LOGIN } from './types'
 
 export const register = registerData => dispatch => {
     dispatch({
@@ -38,4 +35,10 @@ export const register = registerData => dispatch => {
                 result: "Failed to Register"
             });
         });
+};
+
+export const loginLink = () => {
+    return {
+        type: TO_LOGIN
+    }
 };
