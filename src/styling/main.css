@@ -1,0 +1,80 @@
+.register {
+    background-color: lightblue;
+    border: 3px solid #0820C2;
+    margin: auto;
+    max-width: 400px;
+    width: 50%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login {
+    background-color: lightblue;
+    border: 3px solid #0820C2;
+    
+    margin: auto;
+    max-width: 400px;
+    width: 50%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.header {
+    color: #A00099;
+    text-align: center;
+}
+
+.submit-button {
+    margin: auto;
+    text-align: center;
+    height: 30px;
+    width: 40%;
+margin-left: 30%;
+margin-right: 30%;
+}
+
+.navWrapper {
+    background-color: #87ceeb;
+    padding-top: 5px;
+}
+
+a {
+    background-color: white;
+    color: #87ceeb;
+    padding: 5px;
+    border-radius: 15%;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: lightblue;
+    border: solid 2px lightsteelblue;
+    color: white;
+    padding: 5px;
+    border-radius: 15%;
+}
+
+li {
+    padding: 3px;
+    list-style-type: none;
+    display: inline;
+}
+
+.navTitle {
+    color: gainsboro;
+    font-size: 100px;
+    text-shadow: 0 0 50px black;
+    -webkit-text-stroke-color: #0020C2;
+    -webkit-text-stroke-width: 3px;
+}
