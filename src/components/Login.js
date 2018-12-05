@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, Header } from 'semantic-ui-react';
-import "../styling/login.css"
+import "../styling/main.css"
 import { userLogin }  from './loginAction.js'
 import { connect } from "react-redux"
 

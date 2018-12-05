@@ -1,5 +1,5 @@
 import React from "react";
-import "../styling/navBar.css";
+import "../styling/main.css";
 import octogif from "../octo1.gif";
 import { Link, Route, Switch } from "react-router-dom";
 

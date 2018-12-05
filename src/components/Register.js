@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Form, Header } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { register } from './action';
-import '../styling/register.css';
+import '../styling/main.css';
 
 export class Register extends Component {
     state = {

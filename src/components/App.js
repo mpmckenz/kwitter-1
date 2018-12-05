@@ -6,6 +6,7 @@ import Login from "./Login";
 import Register from "./Register";
 // import Posts from "./Posts";
 import EditProfile from "./EditProfile";
+import Newsfeed from "./newsfeed.js";
 // import Homepage from "./Homepage";
 
 class App extends Component {
@@ -16,7 +17,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => <Login />} />
           <Route path="/register" render={() => <Register />} />
-          {/* <Route path="/posts" render={() => <Posts />} /> */}
+          <Route path="/posts" render={() => <Newsfeed />} />
           <Route path="/edit" render={() => <EditProfile />} />
           {/* <Route path="/home" render={() => <Homepage />} /> */}
         </Switch>
