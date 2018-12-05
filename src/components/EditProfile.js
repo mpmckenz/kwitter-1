@@ -10,7 +10,7 @@ class EditProfile extends React.Component {
         </Header>
         <Form size="large">
           <Form.Field>
-            <input className="input" placeholder="About Me" />
+            <input className="aboutme" placeholder="About Me" />
           </Form.Field>
           <Form.Field>
             <input className="input" placeholder="name" />
