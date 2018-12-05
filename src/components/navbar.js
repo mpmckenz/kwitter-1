@@ -13,9 +13,6 @@ class Navbar extends React.Component {
             <Link to="/">Login</Link>
           </li>
           <li>
-            <Link to="/posts">News Feeds</Link>
-          </li>
-          <li>
             <Link to="/edit">Edit Profile</Link>
           </li>
           <li>
