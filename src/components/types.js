@@ -15,3 +15,6 @@ export const PATCH_ABOUT = 'PATCH_ABOUT'
 export const IS_LOGGING_IN = "IS_LOGGING_IN";
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
 export const USER_LOGIN_FAIL = "USER_LOGIN_FAIL";
+export const TO_LOGIN = "TO_LOGIN";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";

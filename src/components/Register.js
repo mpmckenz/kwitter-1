@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Form, Header } from 'semantic-ui-react';
+import { Button, Form, Header, Message } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { register } from './action';
+import { Link } from 'react-router-dom';
+import { register, loginLink } from './action';
 import '../styling/main.css';
 
 export class Register extends Component {
@@ -42,6 +43,10 @@ export class Register extends Component {
     //         <Segment color="red">Entered passwords do not match</Segment>
     //     )
     // }
+
+    handleLoginLink = () => {
+        this.props.loginLink()
+    };
 
     handleRegister = (event) => {
         this.props.register({
@@ -92,6 +97,13 @@ export class Register extends Component {
                 </Form>
                 <div>
                     <h3>{this.props.result}</h3>
+                </div>
+                <Message className="line">_____________________________________</Message>
+                <div>
+                    <Message className="message">
+                        Already signed up?
+                        <Link className="link" to="/" onClick={this.handleLoginLink}> Login</Link>
+                    </Message>
                 </div>
             </div>
         );
