@@ -21,6 +21,17 @@
     flex-direction: column;
 }
 
+.profile-left {
+    background-color: lightblue;
+    border: 3px solid #0820C2;
+    
+    margin: left;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+
+}
+
 .input {
     width: 100%;
     padding: 12px 20px;
