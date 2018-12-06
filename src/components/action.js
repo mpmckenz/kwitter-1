@@ -1,5 +1,6 @@
 import { REGISTER, REGISTER_SUCCESS, REGISTER_FAIL, TO_LOGIN } from "./types";
 import { push } from "connected-react-router";
+import React, { Component, Fragment } from "react";
 // import { push } from "react-router-redux";
 import { history } from "./store";
 
@@ -30,7 +31,7 @@ export const register = registerData => dispatch => {
         register: data,
         result: "Successfully Registered"
       });
-      dispatch(push("/"));
+      dispatch(push('/'))
     })
     .catch(err => {
       // dispatch here on fail
@@ -38,6 +39,7 @@ export const register = registerData => dispatch => {
         type: REGISTER_FAIL,
         result: "Failed to Register"
       });
+      alert("Username Taken. Please Choose another")
     });
 };
 

@@ -8,14 +8,19 @@ import { store, history } from "./components/store";
 import "./index.css";
 import { ConnectedRouter } from "connected-react-router";
 
+
+
+
 ReactDOM.render(
-  <BrowserRouter>
+  
     <Provider store={store}>
-      {/* <ConnectedRouter history={history}> */}
+    <ConnectedRouter history={history}>
+    
       <App />
-      {/* </ConnectedRouter> */}
-    </Provider>
-  </BrowserRouter>,
+
+      </ConnectedRouter>
+    </Provider>,
+ 
   document.getElementById("root")
 );
 
