@@ -18,13 +18,9 @@ class App extends Component {
           <Route path="/edit" render={() => <EditProfile />} />
           <Route path="/home" render={() => <Homepage />} />
         </Switch>
-
-        {/* <Switch>
-          <Route path="*" component={Navbar} />
-        </Switch> */}
       </div>
     );
   }
 }
 
-export default withRouter(App);
+export default App;
