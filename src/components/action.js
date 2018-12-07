@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 export const GET_MESSAGES = "GET_MESSAGES";
-export const ADD_KWEET = "ADD_KWEET";
+export const ADD_TWEET = "ADD_TWEET";
 
 export const register = registerData => dispatch => {
   dispatch({
@@ -55,7 +55,7 @@ export const loginLink = () => {
 };
 
 
-export const addKweet = ({ message}) => (dispatch, getState) => {
+export const addTweet = ({ message}) => (dispatch, getState) => {
   axios({
     method: "POST",
     url: "https://kwitter-api.herokuapp.com/messages",
@@ -66,7 +66,9 @@ export const addKweet = ({ message}) => (dispatch, getState) => {
     },
     data: { 'text': message }
   }).then(() => {
-    dispatch(getMessages());
+    dispatch(getMessages())
+    dispatch(push('/'))
+    ;
   }).catch(err => console.log(err));
 };
 
@@ -82,6 +84,7 @@ export function getMessages() {
               messages: res.data.messages
             }
           });
+          dispatch(push('/home'))
         }
       })
       .catch(err => {

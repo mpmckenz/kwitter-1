@@ -5,7 +5,7 @@ import { addMessage } from './types'
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import  Messages  from './messages.js'
-import {addKweet} from './action.js'
+import {addTweet} from './action.js'
 
 class Homepage extends Component {
 
@@ -20,7 +20,7 @@ class Homepage extends Component {
   }
 
   handleSubmit = event => {
-    this.props.addKweet({message: this.state.text});
+    this.props.addTweet({message: this.state.text});
     this.setState({
       message: ''
     });
@@ -77,7 +77,7 @@ class Homepage extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addKweet: kweet => dispatch(addKweet(kweet))
+    addTweet: tweet => dispatch(addTweet(tweet))
   };
 };
 
