@@ -1,8 +1,31 @@
 import React, { Component } from "react";
-import { Card, Icon, Image, Feed, Input } from "semantic-ui-react";
+import { Card, Icon, Image, Feed, Input, Button } from "semantic-ui-react";
 import octojpg from "../octo1.png";
+import { addMessage } from './types'
+import { connect } from 'react-redux';
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
+import  Messages  from './messages.js'
+import {addKweet} from './action.js'
 
 class Homepage extends Component {
+
+  state = {
+    text: ''
+  }
+
+  handleOnChange = (event) => {
+    this.setState({
+      text: event.target.value
+    })
+  }
+
+  handleSubmit = event => {
+    this.props.addKweet({message: this.state.text});
+    this.setState({
+      message: ''
+    });
+  }
+
   render() {
     return (
       <div className="userHomepage">
@@ -32,9 +55,13 @@ class Homepage extends Component {
             className="newUserPost"
             placeholder="What's new with you?"
             autoFocus
+            onChange = {this.handleOnChange}
+            // value={this.state.text}
           />
+          <Button onClick={this.handleSubmit} type='submit'>Submit</Button>
           <Feed>
             <hr />
+            <Messages/>
             <Feed.Event>
               <Feed.Label image={octojpg} />
               <Feed.Content content="You added Elliot Fu to the group Coworkers" />
@@ -48,4 +75,17 @@ class Homepage extends Component {
   }
 }
 
-export default Homepage;
+const mapDispatchToProps = dispatch => {
+  return {
+    addKweet: kweet => dispatch(addKweet(kweet))
+  };
+};
+
+const mapStateToProps = state => ({
+  loggedInUser: state.loggedInUser
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Homepage);
