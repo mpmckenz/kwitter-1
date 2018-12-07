@@ -100,6 +100,16 @@ class Register extends Component {
                     </Form.Field> */}
           <Button
             className="submit-button"
+            // style={{
+            //     margin: "auto",
+            //     textAlign: "center",
+            //     height: "40px",
+            //     width: "40%",
+            //     marginLeft: "30%",
+            //     marginRight: "30%",
+            //     color: "white",
+            //     backgroundColor: "#A00099"
+            // }}
             // type="submit"
             onClick={this.handleRegister}
           >
@@ -109,7 +119,7 @@ class Register extends Component {
         <div>
           <h3>{this.props.result}</h3>
         </div>
-        <Message className="line">
+        <Message className="line" style={{boxShadow: "none"}}>
           _____________________________________
         </Message>
         <div>
