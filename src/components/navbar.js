@@ -1,5 +1,5 @@
 import React from "react";
-import "../styling/main.css";
+import "../Styling/main.css";
 import octogif from "../octo1.gif";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";

@@ -18,4 +18,27 @@ export const USER_LOGIN_FAIL = "USER_LOGIN_FAIL";
 export const TO_LOGIN = "TO_LOGIN";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
-export const TO_REGISTER = "TO_REGISTER";
+export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const LIKE_MESSAGE = 'LIKE_MESSAGE';
+export const UNLIKE_MESSAGE = 'UNLIKE_MESSAGE';
+
+export const addMessage = (text) => {
+    return{
+    type: ADD_MESSAGE,
+    text,
+    }
+  };
+
+  export const likeMessage = (tweet, user) => {
+    return{
+    type: LIKE_MESSAGE,
+    payload: {tweet, user}
+    }
+};
+
+export const unlikeMessage = (tweet) => {
+    return{
+    type: UNLIKE_MESSAGE,
+    payload: tweet
+    }
+};

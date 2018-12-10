@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER, NEW_POST, LIKE, DELETE_MESSAGE, GET_MESSAGE_ID, GET_MESSAGES, GET_LOGOUT, GET_USER, DELETE_USER, UNLIKE, PATCH_PASSWORD, PATCH_ABOUT } from './types'
+import { LOGIN, REGISTER, NEW_POST, LIKE, DELETE_MESSAGE, GET_MESSAGE_ID, GET_MESSAGES, GET_LOGOUT, GET_USER, DELETE_USER, UNLIKE, PATCH_PASSWORD, PATCH_ABOUT, USER_LOGIN_SUCCESS } from './types'
 
 
 
@@ -13,6 +13,19 @@ const initialState = {
 export default function (state = initialState, action) {
 
     switch (action.type) {
+        case USER_LOGIN_SUCCESS:
+        return {
+            ...state, 
+            profile: {
+                ...state.profile,
+                id: action.payload.id,
+                success: action.payload.success,
+                token: action.payload.token,
+                
+            }
+        }
+            
+
         case LOGIN:
 
             return {
@@ -53,7 +66,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 messageId: action.messageId,
-                likes: [...state.likes, action.messageId]
+                
             }
 
         case DELETE_MESSAGE:

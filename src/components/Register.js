@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Button, Form, Header, Message } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import { register, loginLink } from "./action";
-import "../styling/main.css";
+import { register, loginLink } from "../Actions/action.js";
+import "../Styling/main.css";
 // import  from "react-router";
 
 class Register extends Component {
