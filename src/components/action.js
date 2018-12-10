@@ -1,4 +1,4 @@
-import { REGISTER, REGISTER_SUCCESS, REGISTER_FAIL, TO_LOGIN, IS_LOGGING_IN, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, LIKE } from "./types";
+import { REGISTER, REGISTER_SUCCESS, REGISTER_FAIL, TO_LOGIN, IS_LOGGING_IN, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, LIKE, UNLIKE } from "./types";
 import { push } from "connected-react-router";
 import axios from "axios";
 import { store } from './store'
@@ -174,3 +174,43 @@ export const userLogin = (username , password) => (dispatch) => {
         store.dispatch(push('/'))
       })
   };
+
+  export const getLikeId = (messageId, userId, messages) => {
+
+    const message = messages.find(message => message.id === messageId)
+    const like = message.likes.find(like => like.userId === userId)
+    
+  
+    if (like === undefined) {
+      return undefined
+    } else {
+      return like.id
+    }
+  }
+
+  export const unlike = (messageId) => (dispatch, getState) => {
+    const loggedIn = store.getState().profile.success
+    if (!loggedIn) { return }
+    const userId = store.getState().profile.id
+    const messages = store.getState().messages
+    const likeId = getLikeId(messageId, userId, messages)
+  
+    const token = getState().profile.token
+    let authKey = `Bearer ${token}`
+  
+    const deleteLike = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", Authorization: authKey },
+    }
+  
+    fetch(api + "/likes/" + likeId, deleteLike)
+      .then(res => res.json())
+      .then(data => {
+        dispatch({
+          type: UNLIKE,
+          messageId: messageId
+        })
+        dispatch(getMessages())
+        store.dispatch(push('/'))
+      })
+  }
