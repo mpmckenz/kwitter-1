@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { likeMessage, unlikeMessage } from './types';
-import { like, unlike } from './action'
+import { like } from './action'
 
 
 
@@ -36,7 +36,7 @@ class List extends React.Component {
 
   render() {
     
-    const unlikeTweet = unlike(this.props.messageId)
+    
     const likeTweet = like(this.props.messageId)
     return (
       <React.Fragment>
@@ -58,7 +58,7 @@ class List extends React.Component {
               </div>
               <div className="meta">
                 <button className="like" type="submit" onClick={likeTweet} ><i className="like icon"></i> {this.props.likes.length} Likes</button>
-                <button type="submit"onClick={unlikeTweet} >Unlike</button>
+                
               </div>
 
             </div>
