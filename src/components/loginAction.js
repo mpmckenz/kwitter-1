@@ -1,5 +1,5 @@
 import { push } from 'connected-react-router';
-import { IS_LOGGING_IN, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL } from './types'
+import { IS_LOGGING_IN, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, TO_REGISTER } from './types'
 
 const api = 'https://kwitter-api.herokuapp.com'
 
@@ -54,3 +54,9 @@ export const userLogin = (username , password) => (dispatch) => {
       type: USER_LOGIN_FAIL
     }
   }
+
+  export const registerLink = () => {
+    return {
+      type: TO_REGISTER
+    };
+  };

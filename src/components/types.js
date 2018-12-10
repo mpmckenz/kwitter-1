@@ -18,3 +18,4 @@ export const USER_LOGIN_FAIL = "USER_LOGIN_FAIL";
 export const TO_LOGIN = "TO_LOGIN";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
+export const TO_REGISTER = "TO_REGISTER";

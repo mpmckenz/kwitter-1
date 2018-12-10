@@ -18,6 +18,10 @@
     flex-direction: column;
 }
 
+.octo {
+    width: 40%;
+}
+
 .input {
     width: 100%;
     padding: 12px 20px;
@@ -38,29 +42,33 @@
 }
 
 .header {
-    color: #A00099;
-    text-align: center;
+    color: #A00099 !important;
+    text-align: center !important;
 }
 
 .submit-button {
-    margin: auto;
-    text-align: center;
+    margin: auto !important;
+    text-align: center !important;
     height: 40px;
-    width: 40%;
-    margin-left: 30%;
-    margin-right: 30%;
-    color: white;
-    background-color: #A00099;
-    font-size: 16px;
+    width: 50%;
+    display: flex !important;
+    justify-content: center !important;
+    color: white !important;
+    background-color: #A00099 !important;
+    font-size: 16px !important;
 }
 
 .submit-button:hover {
-    background-color: rgb(136, 2, 129);
+    background-color: rgb(136, 2, 129) !important;
 }
 
 .navWrapper {
     background-color: #87ceeb;
     padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2%;
 }
 
 a {
@@ -69,6 +77,9 @@ a {
     padding: 5px;
     border-radius: 15%;
     text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 a:hover {
@@ -91,22 +102,56 @@ li {
     text-shadow: 0 0 50px black;
     -webkit-text-stroke-color: #0020C2;
     -webkit-text-stroke-width: 3px;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.navBarLinks {
+    padding-left: 0px;
+    padding-right: 40px;
+    margin: 7px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#loginLink, #editLink, #homeLink, #registerLink, #logoutLink {
+    color: #67afcc;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-height: 30px;
+    width: 100px;
+}
+
+#loginLink:hover, #editLink:hover, #homeLink:hover, #registerLink:hover, #logoutLink:hover {
+    color: white !important;
+    background-color: #A00099 !important;
+    border: solid 1px transparent !important;
+    text-decoration: none;
 }
 
 .message {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    flex-direction: row;
+    margin-top: 15px !important;
 }
 
 .link, .link:hover {
     font-weight: bold;
     color: #A00099;
     text-decoration: none;
-    background-color: transparent;
+    background-color: transparent !important;
     padding-top: 0;
     padding-bottom: 0;
-    border: solid 1px transparent;
+    border: solid 1px transparent !important;
+}
+
+.line {
+    background-color: transparent !important;
+    border: solid 1px transparent !important;
 }
 
 .userHomepage {
@@ -123,7 +168,7 @@ li {
 }
 
 .userFeed {
-    margin-left: 75px;
+    margin-left: 7%;
     float: left;
     width: 500px;
 }
