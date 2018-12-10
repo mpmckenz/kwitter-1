@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, Header, Message } from "semantic-ui-react";
+import { Button, Form, Header, Message, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { register, loginLink } from "../Actions/action.js";
@@ -10,9 +10,9 @@ class Register extends Component {
   state = {
     displayName: "",
     username: "",
-    password: ""
-    // passwordRepeat: "",
-    // passwordMatches: true
+    password: "",
+    passwordRepeat: "",
+    passwordMatches: true
   };
 
   handleChangeDisplayName = event => {
@@ -33,29 +33,48 @@ class Register extends Component {
     });
   };
 
-  // handleChangeMatch = (event) => {
-  //     this.setState({
-  //         passwordMatches: event.target.value
-  //     });
-  // };
+  handleChangeMatch = (event) => {
+      this.setState({
+          passwordRepeat: event.target.value
+      });
+  };
 
-  // noMatch = () => {
-  //     return (
-  //         <Segment color="red">Entered passwords do not match</Segment>
-  //     )
-  // }
+  noMatch = () => {
+    return (
+      <Segment color="red">Entered passwords do not match.</Segment>
+    )
+  }
+
+  usernameFail = () => {
+    return (
+      <Segment color="red">Username taken. Choose a different username.</Segment>
+    )
+  }
 
   handleLoginLink = () => {
     this.props.loginLink();
   };
 
   handleRegister = event => {
-    console.log("handle was called");
-    this.props.register({
-      username: this.state.username,
-      password: this.state.password,
-      displayName: this.state.displayName
-    });
+    if (
+      this.state.displayName &&
+      this.state.username &&
+      this.state.password === this.state.passwordRepeat
+    ) {
+      this.setState({ passwordMatches: true })
+      console.log("handle was called");
+      this.props.register({
+        username: this.state.username,
+        password: this.state.password,
+        displayName: this.state.displayName
+      });
+    }
+
+    if (this.state.password !== this.state.passwordRepeat) {
+      this.setState({ passwordMatches: false })
+    } else {
+      this.setState({ passwordMatches: true })
+    }
   };
 
   render() {
@@ -65,6 +84,7 @@ class Register extends Component {
           Sign Up
         </Header>
         <Form size="large">
+          {/* { this.props.register.isUsernameFail ? this.usernameFail() : null } */}
           <Form.Field>
             <input
               className="input"
@@ -85,7 +105,6 @@ class Register extends Component {
             />
           </Form.Field>
           <Form.Field>
-            {/* { this.state.passwordMatches ? null : this.noMatch() } */}
             <input
               className="input"
               placeholder="Password"
@@ -95,9 +114,17 @@ class Register extends Component {
               required
             />
           </Form.Field>
-          {/* <Form.Field>
-                        <input className="input" placeholder="Re-Enter Password" value={this.state.passwordRepeat} fluid required />
-                    </Form.Field> */}
+          <Form.Field>
+            { this.props.passwordMatches ? null : this.noMatch() }
+            <input
+              className="input"
+              placeholder="Re-Enter Password"
+              type="password"
+              value={this.state.passwordRepeat}
+              onChange={this.handleChangeMatch}
+              required 
+            />
+          </Form.Field>
           <Button
             className="submit-button"
             // style={{
