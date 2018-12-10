@@ -1,7 +1,9 @@
 import React from 'react';
-import { Feed, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { likeMessage, unlikeMessage } from './types';
+import { like } from './action'
+
+
 
 const PHOTO_URL = "https://picsum.photos/200?photo=";
 
@@ -28,14 +30,14 @@ class List extends React.Component {
     this.props.dispatch(likeMessage(userId, messageId))
   }
   handleUnlike = (messageId) => () => {
-    
+    console.log(messageId)
     this.props.dispatch(unlikeMessage(messageId))
   }
 
   render() {
     
     const unlike = this.handleUnlike(this.props.messageId)
-    const like = this.handleLike(this.props.userId, this.props.messageId)
+    const likeTweet = like(this.props.messageId)
     return (
       <React.Fragment>
 
@@ -49,13 +51,13 @@ class List extends React.Component {
                 {this.formatDate(this.props.date)}
               </div>
               <div className="summary">
-                <a>User: {this.props.userId}</a>
+                {/* <a>User: {this.props.userId}</a> */}
               </div>
               <div className="extra text">
                 {this.props.text}
               </div>
               <div className="meta">
-                <button className="like" type="submit" onClick={like} ><i className="like icon"></i> {this.props.likes.length} Likes</button>
+                <button className="like" type="submit" onClick={likeTweet} ><i className="like icon"></i> {this.props.likes.length} Likes</button>
                 <button type="submit"onClick={unlike} >Unlike</button>
               </div>
 

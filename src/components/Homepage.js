@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Card, Icon, Image, Feed, Input, Button } from "semantic-ui-react";
 import octojpg from "../octo1.png";
-import { addMessage } from './types'
 import { connect } from 'react-redux';
-import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import  Messages  from './messages.js'
 import {addTweet} from './action.js'
 

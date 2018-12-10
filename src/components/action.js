@@ -1,11 +1,14 @@
-import { REGISTER, REGISTER_SUCCESS, REGISTER_FAIL, TO_LOGIN, IS_LOGGING_IN, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL } from "./types";
+import { REGISTER, REGISTER_SUCCESS, REGISTER_FAIL, TO_LOGIN, IS_LOGGING_IN, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, LIKE } from "./types";
 import { push } from "connected-react-router";
 import axios from "axios";
+import { store } from './store'
 
 
 
 export const GET_MESSAGES = "GET_MESSAGES";
 export const ADD_TWEET = "ADD_TWEET";
+const api = 'https://kwitter-api.herokuapp.com'
+
 
 export const register = registerData => dispatch => {
   dispatch({
@@ -94,7 +97,7 @@ export function getMessages() {
 }
 
 
-const api = 'https://kwitter-api.herokuapp.com'
+
 
 export const userLogin = (username , password) => (dispatch) => {
    dispatch(isLoggingIn());
@@ -147,3 +150,27 @@ export const userLogin = (username , password) => (dispatch) => {
       type: USER_LOGIN_FAIL
     }
   }
+
+  export const like = (messageId) => (dispatch, getState) => {
+    const loggedIn = store.getState().profile.success
+    if (!loggedIn) { return }
+    const token = store.getState().profile.token
+    let authKey = `Bearer ${token}`
+  
+    const postLike = {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: authKey },
+      body: JSON.stringify({ messageId: messageId })
+    }
+  
+    fetch(api + "/likes", postLike)
+      .then(res => res.json())
+      .then(data => {
+        store.dispatch({
+          type: LIKE,
+          messageId: data.messageId
+        })
+        store.dispatch(getMessages())
+        store.dispatch(push('/'))
+      })
+  };

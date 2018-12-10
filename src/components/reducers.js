@@ -66,7 +66,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 messageId: action.messageId,
-                likes: [...state.likes, action.messageId]
+                
             }
 
         case DELETE_MESSAGE:

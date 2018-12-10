@@ -29,17 +29,16 @@ export const addMessage = (text) => {
     }
   };
 
-  export const likeMessage = (userId, messageId) => {
+  export const likeMessage = (tweet, user) => {
     return{
     type: LIKE_MESSAGE,
-    userId,
-    messageId
+    payload: {tweet, user}
     }
 };
 
-export const unlikeMessage = (messageId) => {
+export const unlikeMessage = (tweet) => {
     return{
     type: UNLIKE_MESSAGE,
-    messageId
+    payload: tweet
     }
 };
