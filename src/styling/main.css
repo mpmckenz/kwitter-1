@@ -178,3 +178,13 @@ li {
     float: left;
     width: 500px;
 }
+
+.messages-list {
+
+    height: 450px;
+
+}
+
+.delete-button {
+    width: 10px;
+}

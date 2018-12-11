@@ -42,7 +42,7 @@ class Messages extends Component {
     // console.log(this.state.messages);
     return (
       <React.Fragment>
-        <div className="ui segment">
+        <div className="messages-list">
           <h3>All Messages</h3>
           {this.messagesSortedByDate(this.state.messages)
             .map((message, i) =>

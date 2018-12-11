@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { likeMessage, unlikeMessage } from '../Redux/types';
-import { like } from '../Actions/action'
+import { Button } from "semantic-ui-react";
+import { like, deleteMessage } from '../Actions/action'
+
 
 
 
@@ -34,10 +36,17 @@ class List extends React.Component {
     this.props.dispatch(unlikeMessage(messageId))
   }
 
+  delete = ( event ) => () => {
+    console.log("hello")
+		deleteMessage( this.props.message)
+	}
+
   render() {
     
     
     const likeTweet = like(this.props.messageId)
+    const dMessage = deleteMessage( this.props.messageId )
+    
     return (
       <React.Fragment>
 
@@ -59,6 +68,9 @@ class List extends React.Component {
               <div className="meta">
                 <button className="like" type="submit" onClick={likeTweet} ><i className="like icon"></i> {this.props.likes.length} Likes</button>
                 
+              </div>
+              <div className= "meta">
+              <button id="delete-button" inverted color='red' onClick={ dMessage } >X</button>
               </div>
 
             </div>
