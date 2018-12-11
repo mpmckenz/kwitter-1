@@ -10,7 +10,7 @@ import Homepage from "./Homepage";
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="background">
         <Route component={Navbar} />
         <Switch>
           <Route exact path="/" render={() => <Login />} />

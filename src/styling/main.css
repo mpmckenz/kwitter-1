@@ -156,6 +156,12 @@ li {
 
 .userHomepage {
     overflow: hidden;
+    background-color: white;
+}
+
+.background {
+    background-color: white;
+    padding-bottom: 20px;
 }
 
 .userHomepageInfo {
