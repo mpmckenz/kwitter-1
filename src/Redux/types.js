@@ -19,6 +19,7 @@ export const IS_LOGGING_IN = "IS_LOGGING_IN";
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
 export const USER_LOGIN_FAIL = "USER_LOGIN_FAIL";
 export const TO_LOGIN = "TO_LOGIN";
+export const TO_REGISTER = "TO_REGISTER";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 export const ADD_MESSAGE = 'ADD_MESSAGE';
@@ -45,5 +46,3 @@ export const unlikeMessage = (tweet) => {
     payload: tweet
     }
 };
-
-export const TO_REGISTER = "TO_REGISTER";
