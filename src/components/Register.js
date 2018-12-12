@@ -71,9 +71,9 @@ class Register extends Component {
     }
 
     if (this.state.password !== this.state.passwordRepeat) {
-      this.setState({ passwordMatches: false })
+      this.setState({ passwordMatches: false });
     } else {
-      this.setState({ passwordMatches: true })
+      this.setState({ passwordMatches: true });
     }
   };
 
@@ -122,7 +122,7 @@ class Register extends Component {
               type="password"
               value={this.state.passwordRepeat}
               onChange={this.handleChangeMatch}
-              required 
+              required
             />
           </Form.Field>
           <Button

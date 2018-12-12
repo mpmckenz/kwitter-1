@@ -4,25 +4,20 @@ import "../Styling/main.css"
 import { userLogin }  from '../Actions/action.js'
 import { connect } from "react-redux"
 import { Link } from "react-router-dom";
-
-
-
+import { withRouter } from "react-router-dom";
 
 class Login extends Component {
-
-  
-
   handleSubmitLogin = () => {
-    this.props.userLogin(this.state.username, this.state.password)
-  }
+    this.props.userLogin(this.state.username, this.state.password);
+  };
 
-  handleChangeUser = (event) => {
-    this.setState({username: event.target.value})
-  }
+  handleChangeUser = event => {
+    this.setState({ username: event.target.value });
+  };
 
-  handleChangePassword = (event) => {
-    this.setState({password: event.target.value}) 
-  }
+  handleChangePassword = event => {
+    this.setState({ password: event.target.value });
+  };
 
   handleRegisterLink = () => {
     this.props.registerLink();
@@ -31,12 +26,12 @@ class Login extends Component {
   state = {
     username: "",
     password: ""
-  }
+  };
 
   render() {
     return (
       <div className="login">
-        <Header className='header' as='h2'>
+        <Header className="header" as="h2">
           Sign In
         </Header>
         <Form size="large">
@@ -67,22 +62,22 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = ({auth , register}) => ({
+const mapStateToProps = ({ auth, register }) => ({
   auth,
   register
 });
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     userLogin: (username, password) => {
-      dispatch(userLogin(username, password))
-    },
-  }
-}
+      dispatch(userLogin(username, password));
+    }
+  };
+};
 
-const Connect = connect(mapStateToProps , mapDispatchToProps)(Login)
+const Connect = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
 
-export default Connect
-
-
-
+export default Connect;

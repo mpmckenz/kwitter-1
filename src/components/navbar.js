@@ -32,18 +32,9 @@ class Navbar extends React.Component {
                 : ""
             }
           >
-            <Link to="/" id="loginLink">Login</Link>
-          </li>
-          <li
-            className={
-              this.props.pathname === "/edit" ||
-              this.props.pathname === "/" ||
-              this.props.pathname === "/register"
-                ? "hide"
-                : ""
-            }
-          >
-            <Link to="/edit" id="editLink">Edit Profile</Link>
+            <Link to="/" id="loginLink">
+              Login
+            </Link>
           </li>
           <li
             className={
@@ -54,15 +45,32 @@ class Navbar extends React.Component {
                 : ""
             }
           >
-            <Link to="/home" id="homeLink">Homepage</Link>
+            <Link to="/edit" id="editLink">
+              Edit Profile
+            </Link>
           </li>
           <li
             className={
               this.props.pathname === "/register" ||
-              this.props.pathname === "/edit" ||
+              this.props.pathname === "/" ||
               this.props.pathname === "/home"
+                ? "hide"
+                : ""
             }
           >
+            <Link to="/home" id="homeLink">
+              Homepage
+            </Link>
+          </li>
+          <li
+          className={
+              this.props.pathname === "/register" ||
+              this.props.pathname === "/edit" ||
+              this.props.pathname === "/home"
+              ? "hide"
+              : ""
+          }
+              >
             <Link to="/register" id="registerLink">Signup</Link>
           </li>
           <li
@@ -72,7 +80,9 @@ class Navbar extends React.Component {
                 : ""
             }
           >
-            <Link to="/" id="logoutLink">Logout</Link>
+            <Link to="/" id="logoutLink">
+              Logout
+            </Link>
           </li>
         </ul>
       </div>
