@@ -1,14 +1,22 @@
-import { REGISTER, REGISTER_SUCCESS, REGISTER_FAIL, TO_LOGIN, IS_LOGGING_IN, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, LIKE, UNLIKE, DELETE_MESSAGE } from "../Redux/types";
+import {
+  REGISTER,
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
+  TO_LOGIN,
+  IS_LOGGING_IN,
+  USER_LOGIN_SUCCESS,
+  USER_LOGIN_FAIL,
+  LIKE,
+  UNLIKE,
+  DELETE_MESSAGE
+} from "../Redux/types";
 import { push } from "connected-react-router";
 import axios from "axios";
-import { store } from '../Redux/store'
-
-
+import { store } from "../Redux/store";
 
 export const GET_MESSAGES = "GET_MESSAGES";
 export const ADD_TWEET = "ADD_TWEET";
-const api = 'https://kwitter-api.herokuapp.com'
-
+const api = "https://kwitter-api.herokuapp.com";
 
 export const register = registerData => dispatch => {
   dispatch({
@@ -37,7 +45,7 @@ export const register = registerData => dispatch => {
         register: data,
         result: "Successfully Registered"
       });
-      dispatch(push('/'))
+      dispatch(push("/"));
     })
     .catch(err => {
       // dispatch here on fail
@@ -45,11 +53,9 @@ export const register = registerData => dispatch => {
         type: REGISTER_FAIL,
         result: "Failed to Register"
       });
-      alert("Username Taken. Please Choose another")
+      alert("Username Taken. Please Choose another");
     });
 };
-
-
 
 export const loginLink = () => {
   return {
@@ -57,22 +63,22 @@ export const loginLink = () => {
   };
 };
 
-
-export const addTweet = ({ message}) => (dispatch, getState) => {
+export const addTweet = ({ message }) => (dispatch, getState) => {
   axios({
     method: "POST",
     url: "https://kwitter-api.herokuapp.com/messages",
     headers: {
-      'Authorization': 'Bearer ' + getState().profile.token,
+      Authorization: "Bearer " + getState().profile.token,
       "Content-Type": "application/json",
-      'charset': "utf-8"
+      charset: "utf-8"
     },
-    data: { 'text': message }
-  }).then(() => {
-    dispatch(getMessages())
-    dispatch(push('/'))
-    ;
-  }).catch(err => console.log(err));
+    data: { text: message }
+  })
+    .then(() => {
+      dispatch(getMessages());
+      dispatch(push("/"));
+    })
+    .catch(err => console.log(err));
 };
 
 export function getMessages() {
@@ -87,7 +93,7 @@ export function getMessages() {
               messages: res.data.messages
             }
           });
-          dispatch(push('/home'))
+          dispatch(push("/home"));
         }
       })
       .catch(err => {
@@ -96,109 +102,110 @@ export function getMessages() {
   };
 }
 
-
-
-
-export const userLogin = (username , password) => (dispatch) => {
-   dispatch(isLoggingIn());
-   const header = {
-     method: "POST",
-     headers: {
-       "Content-Type": "application/json"
-     },
-     body: JSON.stringify({
-       "username":username,
-       "password":password,
-     })
-   }
-   
-   
-   fetch(`${api}/auth/login`, header)
-     .then(response => response.json())
-     .then(loginResponse => {
-         //add code to push to new URL after this fetch is completed so that it goes to profile page
-       if( loginResponse.success ){
-         dispatch(userLoginSuccess(loginResponse.token,loginResponse.success, loginResponse.id))
-         dispatch(push('/home'))
-       }else{
-         dispatch(userLoginFail())
-         alert("Invalid username or password")
-       }
-     }).catch(error => dispatch(userLoginFail()))
-   
- }
-
- export const userLoginSuccess = (token, success, userID) => {
-    return {
-      type: USER_LOGIN_SUCCESS, 
-      payload: {
-          token,
-          success,
-          userID
-      }
-    }
-  }
-
- export const isLoggingIn = () => {
-    return {
-      type: IS_LOGGING_IN
-    }
-  }
-
-  export const userLoginFail = () => {
-    return {
-      type: USER_LOGIN_FAIL
-    }
-  }
-
-  export const like = (messageId) => (dispatch, getState) => {
-    const loggedIn = store.getState().profile.success
-    if (!loggedIn) { return }
-    const token = store.getState().profile.token
-    let authKey = `Bearer ${token}`
-  
-    const postLike = {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: authKey },
-      body: JSON.stringify({ messageId: messageId })
-    }
-  
-    fetch(api + "/likes", postLike)
-      .then(res => res.json())
-      .then(data => {
-        store.dispatch({
-          type: LIKE,
-          messageId: data.messageId
-        })
-        store.dispatch(getMessages())
-        store.dispatch(push('/'))
-      })
+export const userLogin = (username, password) => dispatch => {
+  dispatch(isLoggingIn());
+  const header = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      username: username,
+      password: password
+    })
   };
 
-  export const deleteMessage = id => ( dispatch, getState ) => {
+  fetch(`${api}/auth/login`, header)
+    .then(response => response.json())
+    .then(loginResponse => {
+      //add code to push to new URL after this fetch is completed so that it goes to profile page
+      if (loginResponse.success) {
+        dispatch(
+          userLoginSuccess(
+            loginResponse.token,
+            loginResponse.success,
+            loginResponse.id
+          )
+        );
+        dispatch(push("/home"));
+      } else {
+        dispatch(userLoginFail());
+        alert("Invalid username or password");
+      }
+    })
+    .catch(error => dispatch(userLoginFail()));
+};
 
-    const loggedIn = store.getState().profile.success
-    if (!loggedIn) { return }
-    const token = store.getState().profile.token
-    let authKey = `Bearer ${token}`
-    let dURL =  api + '/messages/' + id
-
-    const deleteMessage = {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json", Authorization: authKey },
-      body: JSON.stringify({ messageId: id })
+export const userLoginSuccess = (token, success, userID) => {
+  return {
+    type: USER_LOGIN_SUCCESS,
+    payload: {
+      token,
+      success,
+      userID
     }
+  };
+};
 
-    fetch(api + "/messages/" + id, deleteMessage)
-      .then(data => {
-        store.dispatch({
-          type: DELETE_MESSAGE,
-          messageId: data.messageId
-        })
-      })
-      store.dispatch(getMessages())
-        store.dispatch(push('/'))
-      
+export const isLoggingIn = () => {
+  return {
+    type: IS_LOGGING_IN
+  };
+};
 
+export const userLoginFail = () => {
+  return {
+    type: USER_LOGIN_FAIL
+  };
+};
 
+export const like = messageId => (dispatch, getState) => {
+  const loggedIn = store.getState().profile.success;
+  if (!loggedIn) {
+    return;
   }
+  const token = store.getState().profile.token;
+  let authKey = `Bearer ${token}`;
+
+  const postLike = {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: authKey },
+    body: JSON.stringify({ messageId: messageId })
+  };
+
+  fetch(api + "/likes", postLike)
+    .then(res => res.json())
+    .then(data => {
+      store.dispatch({
+        type: LIKE,
+        messageId: data.messageId
+      });
+      store.dispatch(getMessages());
+      store.dispatch(push("/"));
+    });
+};
+
+export const deleteMessage = id => (dispatch, getState) => {
+  const loggedIn = store.getState().profile.success;
+  if (!loggedIn) {
+    return;
+  }
+  const token = store.getState().profile.token;
+  let authKey = `Bearer ${token}`;
+  let dURL = api + "/messages/" + id;
+
+  const deleteMessage = {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json", Authorization: authKey },
+    body: JSON.stringify({ messageId: id })
+  };
+
+  fetch(api + "/messages/" + id, deleteMessage).then(data => {
+    store.dispatch({
+      type: DELETE_MESSAGE,
+      messageId: data.messageId
+    });
+  });
+  store.dispatch(getMessages());
+  store.dispatch(push("/"));
+};

@@ -4,7 +4,7 @@ import octojpg from "../octo1.png";
 import { connect } from "react-redux";
 import Messages from "./messages.js";
 import { addTweet } from "../Actions/action.js";
-import { getUserByID } from "./homepageAction";
+import { getUserByID } from "../Actions/homepageAction";
 
 class Homepage extends Component {
   componentDidMount() {
@@ -76,7 +76,7 @@ class Homepage extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapDispatchToProps = dispatch => {
   return {
     addTweet: tweet => dispatch(addTweet(tweet)),
     GetUserByID: () => dispatch(getUserByID())

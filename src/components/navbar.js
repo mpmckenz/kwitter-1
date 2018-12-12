@@ -45,7 +45,9 @@ class Navbar extends React.Component {
                 : ""
             }
           >
-            <Link to="/edit" id="editLink">Edit Profile</Link>
+            <Link to="/edit" id="editLink">
+              Edit Profile
+            </Link>
           </li>
           <li
             className={
@@ -56,7 +58,9 @@ class Navbar extends React.Component {
                 : ""
             }
           >
-            <Link to="/home" id="homeLink">Homepage</Link>
+            <Link to="/home" id="homeLink">
+              Homepage
+            </Link>
           </li>
           <li
           className={
@@ -75,17 +79,6 @@ class Navbar extends React.Component {
                 ? "hide"
                 : ""
             }
-          >
-            <Link to="/">Logout</Link>
-          </li>
-
-          <br />
-          <li
-          className={
-            this.props.pathname === "/register"
-            ? "hide"
-            : ""
-          }
           >
             <Link to="/" id="logoutLink">
               Logout

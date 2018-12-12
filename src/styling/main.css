@@ -180,9 +180,13 @@ li {
 }
 
 .messages-list {
+<<<<<<< HEAD
 
     height: 450px;
 
+=======
+    height: 450px;
+>>>>>>> homepage user profile
 }
 
 .delete-button {

@@ -4,7 +4,7 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
   TO_REGISTER
-} from "./types";
+} from "../Redux/types";
 
 const api = "https://kwitter-api.herokuapp.com";
 
