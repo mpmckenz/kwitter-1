@@ -6,7 +6,9 @@ import { connectRouter, routerMiddleware } from "connected-react-router";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const history = createBrowserHistory({basename: process.env.PUBLIC_URL});
+export const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL
+});
 
 const middleware = [routerMiddleware(history), thunk];
 
