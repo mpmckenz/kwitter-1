@@ -4,12 +4,9 @@ import App from "./Components/App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store, history } from "./components/store";
+import { store, history } from "./Redux/store";
 import "./index.css";
 import { ConnectedRouter } from "connected-react-router";
-
-
-
 
 ReactDOM.render(
   <Provider store={store}>

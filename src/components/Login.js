@@ -75,11 +75,9 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const Connect = withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Login)
-);
+const Connect = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
 
 export default Connect;
