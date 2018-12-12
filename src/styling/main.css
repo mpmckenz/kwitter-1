@@ -9,6 +9,10 @@
     flex-direction: column;
 }
 
+.hide {
+    display: none;
+}
+
 .profile-left {
     background-color: lightblue;
     border: 3px solid #0820C2;

@@ -5,12 +5,34 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Navbar extends React.Component {
+  // option1:
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     isHidden: true
+  //   };
+  // }
+  // toggleHiddenNavbar = event => {
+  //   this.setState({
+  //     isHidden: !this.state.isHidden
+  //   });
+  // };
+  // USING THIS onClick in the Link tags-> onClick={this.toggleHiddenNavbar.bind(this)}
+  // And a JS object where the child links would go-> {!this.state.isHidden && <NameOfChildComponent/>}
+  // This Child Component would be the li tags containing Link tag
+
+  // Option2
+  // handleNavbar = event => {
+  //   const newNavbar = this.props.filter(pathName => {
+  //     if (pathName.pathname === "/")
+  //   })
+  // }
+
+  // Option3
+  // Use ternary statement with css visibility prop
+  // ISSUE WITH THIS CHOICCE IS IT LEAVES TERRIBLE SPACING BETWEEN BUTTONS
+
   render() {
-    // handleNavbar = event => {
-    //   const newNavbar = this.props.filter(pathName => {
-    //     if (pathName.pathname === )
-    //   })
-    // }
     console.log(this.props.pathname);
     return (
       <div className="navWrapper">
@@ -22,11 +44,11 @@ class Navbar extends React.Component {
         </ul>
 
         <ul className="navBarLinks">
-          {/* Use ternary to assign className="isVisible" */}
           <li
             className={
               this.props.pathname === "/edit" ||
               this.props.pathname === "/home" ||
+              this.props.pathname === "/logout" ||
               this.props.pathname === "/register"
                 ? "hide"
                 : ""
@@ -38,9 +60,7 @@ class Navbar extends React.Component {
           </li>
           <li
             className={
-              this.props.pathname === "/register" ||
-              this.props.pathname === "/" ||
-              this.props.pathname === "/home"
+              this.props.pathname === "/register" || this.props.pathname === "/"
                 ? "hide"
                 : ""
             }
@@ -63,24 +83,29 @@ class Navbar extends React.Component {
             </Link>
           </li>
           <li
-          className={
+            className={
               this.props.pathname === "/register" ||
               this.props.pathname === "/edit" ||
+              this.props.pathname === "/logout" ||
               this.props.pathname === "/home"
-              ? "hide"
-              : ""
-          }
-              >
-            <Link to="/register" id="registerLink">Signup</Link>
-          </li>
-          <li
-            className={
-              this.props.pathname === "/" || this.props.pathname === "/register"
                 ? "hide"
                 : ""
             }
           >
-            <Link to="/" id="logoutLink">
+            <Link to="/register" id="registerLink">
+              Signup
+            </Link>
+          </li>
+          <li
+            className={
+              this.props.pathname === "/" ||
+              this.props.pathname === "/logout" ||
+              this.props.pathname === "/register"
+                ? "hide"
+                : ""
+            }
+          >
+            <Link to="/logout" id="logoutLink">
               Logout
             </Link>
           </li>
