@@ -32,18 +32,15 @@ class Homepage extends Component {
             <Image src={octojpg} />
             <div className="userHomepageInfo">
               <Card.Content>
-                <Card.Header>Display Name</Card.Header>
+                <Card.Header>{this.props.displayName}</Card.Header>
                 <Card.Meta>
-                  <span className="date">User Name</span>
+                  <span className="date">{this.props.userName}</span>
                 </Card.Meta>
-                <Card.Description>
-                  All about me, blah blah blah blah blah blah blah blah blah
-                  blah blah blah blah blah blah blah
-                </Card.Description>
+                <Card.Description>{this.props.aboutMe}</Card.Description>
               </Card.Content>
               <br />
               <Card.Content extra>
-                <Icon name="user">0 posts</Icon>
+                <Icon name="user">{this.props.numOfPosts} posts</Icon>
               </Card.Content>
             </div>
           </Card>
@@ -73,15 +70,21 @@ class Homepage extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
   return {
-    addTweet: tweet => dispatch(addTweet(tweet))
+    displayName: state.userData.displayName,
+    userName: state.userData.username,
+    aboutMe: state.userData.aboutMe,
+    numOfPosts: state.userData.messages.length,
+    ID: state.profile.id
   };
 };
 
-const mapStateToProps = state => ({
-  loggedInUser: state.loggedInUser
-});
+const mapDispatchToProps = dispatch => {
+  return { GetUserByID: ID => dispatch(getUserByID(ID)),
+    addTweet: tweet => dispatch(addTweet(tweet))
+   };
+};
 
 export default connect(
   mapStateToProps,
