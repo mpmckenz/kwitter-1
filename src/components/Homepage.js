@@ -76,12 +76,7 @@ class Homepage extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addTweet: tweet => dispatch(addTweet(tweet)),
-    GetUserByID: () => dispatch(getUserByID())
-  };
-};
+
 
 const mapDispatchToProps = dispatch => {
   return { GetUserByID: ID => dispatch(getUserByID(ID)),
