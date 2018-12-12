@@ -36,20 +36,14 @@ class Homepage extends Component {
             <Image src={octojpg} />
             <div className="userHomepageInfo">
               <Card.Content>
-                <Card.Header>
-                  Display Name: {this.props.displayname}
-                </Card.Header>
+                <Card.Header>{this.props.displayname}</Card.Header>
                 <Card.Meta>
-                  <span className="date">Username: {this.props.username}</span>
+                  <span className="date">{this.props.username}</span>
                 </Card.Meta>
-                <Card.Description>
-                  About me:{this.props.aboutMe}
-                </Card.Description>
+                <Card.Description>{this.props.aboutMe}</Card.Description>
               </Card.Content>
               <br />
-              <Card.Content extra>
-                <Icon name="user">{this.props.numOfPosts} posts</Icon>
-              </Card.Content>
+              <Card.Content extra>{this.props.numOfPosts} posts</Card.Content>
             </div>
           </Card>
         </div>
@@ -58,16 +52,19 @@ class Homepage extends Component {
             className="newUserPost"
             placeholder="What's new with you?"
             autoFocus
-            onChange = {this.handleOnChange}
+            onChange={this.handleOnChange}
             // value={this.state.text}
           />
-          <Button onClick={this.handleSubmit} type='submit'>Submit</Button>
+          <Button onClick={this.handleSubmit} type="submit">
+            Submit
+          </Button>
           <Feed>
             <hr />
-            <Messages/>
+            <Messages />
             <Feed.Event>
               <Feed.Label image={octojpg} />
-            </Feed.Event> */}
+            </Feed.Event>{" "}
+            */}
           </Feed>
           <hr />
         </div>
@@ -83,11 +80,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return { GetUserByID: ID => dispatch(getUserByID(ID)),
-    addTweet: tweet => dispatch(addTweet(tweet))
-   };
-};
 const mapStateToProps = state => ({
   loggedInUser: state.loggedInUser,
   displayname: state.userData.displayName,
