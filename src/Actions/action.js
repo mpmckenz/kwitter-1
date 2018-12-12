@@ -175,6 +175,8 @@ export const userLogin = (username , password) => (dispatch) => {
 
   export const deleteMessage = id => ( dispatch, getState ) => {
 
+    console.log("hi")
+
     const loggedIn = store.getState().profile.success
     if (!loggedIn) { return }
     const token = store.getState().profile.token
@@ -193,6 +195,8 @@ export const userLogin = (username , password) => (dispatch) => {
       store.dispatch(getMessages())
         store.dispatch(push('/'))
       })
+
+      
       
       
 

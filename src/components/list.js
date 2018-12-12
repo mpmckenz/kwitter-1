@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { likeMessage, unlikeMessage } from '../Redux/types';
 import { Button } from "semantic-ui-react";
 import { like, deleteMessage } from '../Actions/action'
+import { store } from "../Redux/store.js"
 
 
 
@@ -10,6 +11,9 @@ import { like, deleteMessage } from '../Actions/action'
 const PHOTO_URL = "https://picsum.photos/200?photo=";
 
 class List extends React.Component {
+
+  componentDidMount() { console.log(this.props.myUserId)}
+  
   
 
   formatDate = (date) => {
@@ -45,7 +49,7 @@ class List extends React.Component {
     
     
     const likeTweet = like(this.props.messageId)
-    const dMessage = () => deleteMessage( this.props.messageId )
+    const dMessage = deleteMessage( this.props.messageId )
     
     return (
       <React.Fragment>
@@ -70,7 +74,11 @@ class List extends React.Component {
                 
               </div>
               <div className= "meta">
-              <button id="delete-button" inverted color='red' onClick={ dMessage } >X</button>
+              
+              {this.props.userId === this.props.myUserId ?
+              
+              (<button id="delete-button" inverted color='red' onClick={ dMessage } >X</button>) : null }
+
               </div>
 
             </div>
@@ -81,4 +89,10 @@ class List extends React.Component {
   }
 }
 
-export default connect()(List);
+const mapStateToProps = state => { 
+  return {myUserId : state }
+}
+
+const mapDispatchToProps = (dispatch) => {return {}}
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);
