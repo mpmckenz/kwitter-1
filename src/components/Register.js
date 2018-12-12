@@ -115,7 +115,7 @@ class Register extends Component {
             />
           </Form.Field>
           <Form.Field>
-            { this.props.passwordMatches ? null : this.noMatch() }
+            { this.state.passwordMatches ? null : this.noMatch() }
             <input
               className="input"
               placeholder="Re-Enter Password"
