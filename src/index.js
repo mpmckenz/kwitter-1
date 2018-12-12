@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./Components/App";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store, history } from "./Redux/store";
+import { store, history } from "./components/store";
 import "./index.css";
 import { ConnectedRouter } from "connected-react-router";
 
@@ -12,19 +12,15 @@ import { ConnectedRouter } from "connected-react-router";
 
 
 ReactDOM.render(
-  
-    <Provider store={store}>
+  <Provider store={store}>
     <ConnectedRouter history={history}>
-    
       <App />
-
-      </ConnectedRouter>
-    </Provider>,
- 
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById("root")
 );
-
 serviceWorker.unregister();
+
 /*
   This code sets up Redux devtools and connected-react-router
   . 
@@ -73,5 +69,14 @@ serviceWorker.unregister();
 //   </Provider>,
 //   document.getElementById("root")
 // );
+
+// Index = () => (
+//   <Provider store={store}>
+//     <ConnectedRouter history={history}>
+//       <App />
+//     </ConnectedRouter>
+//   </Provider>,
+//   document.getElementById("root")
+// )
 
 // registerServiceWorker();
