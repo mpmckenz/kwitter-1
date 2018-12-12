@@ -1,28 +1,32 @@
 import React, { Component } from "react";
 import { Card, Icon, Image, Feed, Input, Button } from "semantic-ui-react";
 import octojpg from "../octo1.png";
-import { connect } from 'react-redux';
-import  Messages  from './messages.js'
-import {addTweet} from '../Actions/action.js'
+import { connect } from "react-redux";
+import Messages from "./messages.js";
+import { addTweet } from "../Actions/action.js";
+import { getUserByID } from "./homepageAction";
 
 class Homepage extends Component {
+  componentDidMount() {
+    this.props.GetUserByID();
+  }
 
   state = {
-    text: ''
-  }
+    text: ""
+  };
 
-  handleOnChange = (event) => {
+  handleOnChange = event => {
     this.setState({
       text: event.target.value
-    })
-  }
+    });
+  };
 
   handleSubmit = event => {
-    this.props.addTweet({message: this.state.text});
+    this.props.addTweet({ message: this.state.text });
     this.setState({
-      message: ''
+      message: ""
     });
-  }
+  };
 
   render() {
     return (
@@ -32,11 +36,15 @@ class Homepage extends Component {
             <Image src={octojpg} />
             <div className="userHomepageInfo">
               <Card.Content>
-                <Card.Header>{this.props.displayName}</Card.Header>
+                <Card.Header>
+                  Display Name: {this.props.displayname}
+                </Card.Header>
                 <Card.Meta>
-                  <span className="date">{this.props.userName}</span>
+                  <span className="date">Username: {this.props.username}</span>
                 </Card.Meta>
-                <Card.Description>{this.props.aboutMe}</Card.Description>
+                <Card.Description>
+                  About me:{this.props.aboutMe}
+                </Card.Description>
               </Card.Content>
               <br />
               <Card.Content extra>
@@ -59,9 +67,7 @@ class Homepage extends Component {
             <Messages/>
             <Feed.Event>
               <Feed.Label image={octojpg} />
-              <Feed.Content content="You added Elliot Fu to the group Coworkers" />
-              <Feed.Date>4 hours ago</Feed.Date>
-            </Feed.Event>
+            </Feed.Event> */}
           </Feed>
           <hr />
         </div>
@@ -72,11 +78,8 @@ class Homepage extends Component {
 
 const mapStateToProps = state => {
   return {
-    displayName: state.userData.displayName,
-    userName: state.userData.username,
-    aboutMe: state.userData.aboutMe,
-    numOfPosts: state.userData.messages.length,
-    ID: state.profile.id
+    addTweet: tweet => dispatch(addTweet(tweet)),
+    GetUserByID: () => dispatch(getUserByID())
   };
 };
 
@@ -85,6 +88,13 @@ const mapDispatchToProps = dispatch => {
     addTweet: tweet => dispatch(addTweet(tweet))
    };
 };
+const mapStateToProps = state => ({
+  loggedInUser: state.loggedInUser,
+  displayname: state.userData.displayName,
+  username: state.userData.username,
+  about: state.userData.about,
+  numOfPosts: state.userData.messages.length
+});
 
 export default connect(
   mapStateToProps,

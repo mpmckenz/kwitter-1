@@ -15,7 +15,6 @@ class Navbar extends React.Component {
     return (
       <div className="navWrapper">
         <ul className="navBar">
-<<<<<<< HEAD
           <li>
             <img src={octogif} alt="" className="octo" />
           </li>
@@ -28,60 +27,29 @@ class Navbar extends React.Component {
             className={
               this.props.pathname === "/edit" ||
               this.props.pathname === "/home" ||
-=======
-          {/* Use ternary to assign className="isVisible" */}
-          <li
-            className={
-              this.props.pathname === "/edit" ||
-              this.props.pathname === "/home" ||
               this.props.pathname === "/register"
                 ? "hide"
                 : ""
             }
           >
-            <Link to="/">Login</Link>
-          </li>
-          <li
-            className={
-              this.props.pathname === "/edit" ||
-              this.props.pathname === "/" ||
->>>>>>> stuff
-              this.props.pathname === "/register"
-                ? "hide"
-                : ""
-            }
-          >
-<<<<<<< HEAD
-            <Link to="/" id="loginLink">Login</Link>
-          </li>
-          <li
-            className={
-              this.props.pathname === "/edit" ||
-              this.props.pathname === "/" ||
-              this.props.pathname === "/register"
-=======
-            <Link to="/edit">Edit Profile</Link>
+            <Link to="/" id="loginLink">
+              Login
+            </Link>
           </li>
           <li
             className={
               this.props.pathname === "/register" ||
               this.props.pathname === "/" ||
               this.props.pathname === "/home"
->>>>>>> stuff
                 ? "hide"
                 : ""
             }
           >
-<<<<<<< HEAD
             <Link to="/edit" id="editLink">Edit Profile</Link>
-=======
-            <Link to="/home">Homepage</Link>
->>>>>>> stuff
           </li>
           <li
             className={
               this.props.pathname === "/register" ||
-<<<<<<< HEAD
               this.props.pathname === "/" ||
               this.props.pathname === "/home"
                 ? "hide"
@@ -91,19 +59,15 @@ class Navbar extends React.Component {
             <Link to="/home" id="homeLink">Homepage</Link>
           </li>
           <li
-            className={
+          className={
               this.props.pathname === "/register" ||
               this.props.pathname === "/edit" ||
               this.props.pathname === "/home"
-            }
-          >
+              ? "hide"
+              : ""
+          }
+              >
             <Link to="/register" id="registerLink">Signup</Link>
-=======
-              this.props.pathname === "/edit" ||
-              this.props.pathname === "/home"
-            }
-          >
-            <Link to="/register">Signup</Link>
           </li>
           <li
             className={
@@ -113,16 +77,19 @@ class Navbar extends React.Component {
             }
           >
             <Link to="/">Logout</Link>
->>>>>>> stuff
           </li>
+
+          <br />
           <li
-            className={
-              this.props.pathname === "/" || this.props.pathname === "/register"
-                ? "hide"
-                : ""
-            }
+          className={
+            this.props.pathname === "/register"
+            ? "hide"
+            : ""
+          }
           >
-            <Link to="/" id="logoutLink">Logout</Link>
+            <Link to="/" id="logoutLink">
+              Logout
+            </Link>
           </li>
         </ul>
       </div>
@@ -134,8 +101,4 @@ const mapStateToProps = state => {
   return { pathname: state.router.location.pathname };
 };
 
-<<<<<<< HEAD
 export default connect(mapStateToProps)(Navbar);
-=======
-export default connect(mapStateToProps)(Navbar);
->>>>>>> stuff
