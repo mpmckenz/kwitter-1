@@ -34,6 +34,7 @@ export const userLogin = (username, password) => dispatch => {
           )
         );
         dispatch(push("/home"));
+        // dispatch(GetUsers())
       } else {
         dispatch(userLoginFail());
         alert("Invalid username or password");
