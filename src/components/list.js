@@ -45,7 +45,7 @@ class List extends React.Component {
     
     
     const likeTweet = like(this.props.messageId)
-    const dMessage = deleteMessage( this.props.messageId )
+    const dMessage = () => deleteMessage( this.props.messageId )
     
     return (
       <React.Fragment>

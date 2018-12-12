@@ -1,12 +1,10 @@
-import { REGISTER, REGISTER_SUCCESS, REGISTER_FAIL, TO_LOGIN, IS_LOGGING_IN, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, LIKE, UNLIKE, DELETE_MESSAGE } from "../Redux/types";
+import { REGISTER, REGISTER_SUCCESS, REGISTER_FAIL, TO_LOGIN, IS_LOGGING_IN, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, LIKE, UNLIKE, DELETE_MESSAGE, ADD_TWEET, GET_MESSAGES } from "../Redux/types";
 import { push } from "connected-react-router";
 import axios from "axios";
 import { store } from '../Redux/store'
 
 
 
-export const GET_MESSAGES = "GET_MESSAGES";
-export const ADD_TWEET = "ADD_TWEET";
 const api = 'https://kwitter-api.herokuapp.com'
 
 
@@ -181,23 +179,21 @@ export const userLogin = (username , password) => (dispatch) => {
     if (!loggedIn) { return }
     const token = store.getState().profile.token
     let authKey = `Bearer ${token}`
-    let dURL =  api + '/messages/' + id
 
     const deleteMessage = {
       method: "DELETE",
       headers: { "Content-Type": "application/json", Authorization: authKey },
-      body: JSON.stringify({ messageId: id })
+      
     }
 
     fetch(api + "/messages/" + id, deleteMessage)
-      .then(data => {
-        store.dispatch({
-          type: DELETE_MESSAGE,
-          messageId: data.messageId
-        })
-      })
+    .then(response => response.json())
+    .then(delResponse => {
+      console.log(delResponse)
       store.dispatch(getMessages())
         store.dispatch(push('/'))
+      })
+      
       
 
 

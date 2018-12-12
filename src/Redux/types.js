@@ -21,6 +21,7 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const LIKE_MESSAGE = 'LIKE_MESSAGE';
 export const UNLIKE_MESSAGE = 'UNLIKE_MESSAGE';
+export const ADD_TWEET = "ADD_TWEET";
 
 export const addMessage = (text) => {
     return{
