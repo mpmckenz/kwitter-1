@@ -83,6 +83,13 @@ const mapStateToProps = state => ({
   numOfPosts: state.userData.messages.length
 });
 
+const mapDispatchToProps = dispatch => {
+  return {
+    addTweet: tweet => dispatch(addTweet(tweet)),
+    GetUserByID: () => dispatch(getUserByID())
+  };
+};
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
