@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Icon, Image, Feed, Input, Button } from "semantic-ui-react";
+import { Card, Image, Feed, Input, Button } from "semantic-ui-react";
 import octojpg from "../octo1.png";
 import { connect } from "react-redux";
 import Messages from "./messages.js";

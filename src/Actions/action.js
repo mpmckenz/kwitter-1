@@ -7,7 +7,6 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
   LIKE,
-  UNLIKE,
   DELETE_MESSAGE
 } from "../Redux/types";
 import { push } from "connected-react-router";
@@ -192,7 +191,7 @@ export const deleteMessage = id => (dispatch, getState) => {
   }
   const token = store.getState().profile.token;
   let authKey = `Bearer ${token}`;
-  let dURL = api + "/messages/" + id;
+  
 
   const deleteMessage = {
     method: "DELETE",

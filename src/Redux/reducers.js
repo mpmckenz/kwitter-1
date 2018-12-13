@@ -1,5 +1,4 @@
 import {
-  LOGIN,
   REGISTER,
   NEW_POST,
   LIKE,

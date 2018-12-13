@@ -10,8 +10,7 @@ class Navbar extends React.Component {
     //   const newNavbar = this.props.filter(pathName => {
     //     if (pathName.pathname === )
     //   })
-    // }
-    console.log(this.props.pathname);
+    // 
     return (
       <div className="navWrapper">
         <ul className="navBar">
