@@ -40,7 +40,7 @@ class Homepage extends Component {
                 <Card.Meta>
                   <span className="date">{this.props.username}</span>
                 </Card.Meta>
-                <Card.Description>{this.props.aboutMe}</Card.Description>
+                <Card.Description>{this.props.about}</Card.Description>
               </Card.Content>
               <br />
               <Card.Content extra>{this.props.numOfPosts} posts</Card.Content>

@@ -13,7 +13,8 @@ import {
   UNLIKE,
   PATCH_PASSWORD,
   PATCH_ABOUT,
-  USER_LOGIN_SUCCESS
+  USER_LOGIN_SUCCESS,
+  EDIT_PROFILE_SUCCESS
 } from "./types";
 
 const initialState = {
@@ -136,6 +137,12 @@ export default function(state = initialState, action) {
     case PATCH_ABOUT:
       return {
         ...state
+      };
+
+    case EDIT_PROFILE_SUCCESS:
+      return {
+        ...state,
+        userData: { ...state.userData, ...action.userData }
       };
 
     default:

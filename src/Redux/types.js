@@ -26,6 +26,8 @@ export const ADD_MESSAGE = "ADD_MESSAGE";
 export const LIKE_MESSAGE = "LIKE_MESSAGE";
 export const UNLIKE_MESSAGE = "UNLIKE_MESSAGE";
 export const EDIT_PROFILE = "EDIT_PROFILE";
+export const EDIT_PROFILE_SUCCESS = "EDIT_PROFILE_SUCCESS";
+export const EDIT_PROFILE_FAIL = "EDIT_PROFILE_FAIL";
 
 export const addMessage = text => {
   return {

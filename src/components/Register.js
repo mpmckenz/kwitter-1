@@ -33,23 +33,23 @@ class Register extends Component {
     });
   };
 
-  handleChangeMatch = (event) => {
-      this.setState({
-          passwordRepeat: event.target.value
-      });
+  handleChangeMatch = event => {
+    this.setState({
+      passwordRepeat: event.target.value
+    });
   };
 
   noMatch = () => {
-    return (
-      <Segment color="red">Entered passwords do not match.</Segment>
-    )
-  }
+    return <Segment color="red">Entered passwords do not match.</Segment>;
+  };
 
   usernameFail = () => {
     return (
-      <Segment color="red">Username taken. Choose a different username.</Segment>
-    )
-  }
+      <Segment color="red">
+        Username taken. Choose a different username.
+      </Segment>
+    );
+  };
 
   handleLoginLink = () => {
     this.props.loginLink();
@@ -61,7 +61,7 @@ class Register extends Component {
       this.state.username &&
       this.state.password === this.state.passwordRepeat
     ) {
-      this.setState({ passwordMatches: true })
+      this.setState({ passwordMatches: true });
       console.log("handle was called");
       this.props.register({
         username: this.state.username,
@@ -115,7 +115,7 @@ class Register extends Component {
             />
           </Form.Field>
           <Form.Field>
-            { this.state.passwordMatches ? null : this.noMatch() }
+            {this.props.passwordMatches ? null : this.noMatch()}
             <input
               className="input"
               placeholder="Re-Enter Password"
@@ -146,7 +146,7 @@ class Register extends Component {
         <div>
           <h3>{this.props.result}</h3>
         </div>
-        <Message className="line" style={{boxShadow: "none"}}>
+        <Message className="line" style={{ boxShadow: "none" }}>
           _____________________________________
         </Message>
         <div>
