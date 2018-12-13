@@ -61,10 +61,6 @@ class Homepage extends Component {
           <Feed>
             <hr />
             <Messages />
-            <Feed.Event>
-              <Feed.Label image={octojpg} />
-            </Feed.Event>{" "}
-            */}
           </Feed>
           <hr />
         </div>
