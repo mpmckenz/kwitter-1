@@ -55,7 +55,7 @@ class Homepage extends Component {
             onChange={this.handleOnChange}
             // value={this.state.text}
           />
-          <Button onClick={this.handleSubmit} type="submit">
+          <Button className="submit-button" onClick={this.handleSubmit} type="submit">
             Submit
           </Button>
           <Feed>
