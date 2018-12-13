@@ -81,7 +81,7 @@ class EditProfile extends React.Component {
             />
             <input
               className="input"
-              type="Re-Enter password"
+              type="password"
               onChange={this.handleChangePassword}
               value={this.state.password}
               placeholder="Re-enter New Password"
