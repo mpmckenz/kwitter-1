@@ -6,6 +6,26 @@ import { like, deleteMessage } from "../Actions/action";
 const PHOTO_URL = "https://picsum.photos/200?photo=";
 
 class List extends React.Component {
+
+  state = { users: [] }
+
+  componentDidMount() {
+    fetch("https://kwitter-api.herokuapp.com/users", 
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        mode: "cors",
+      })
+      .then(response => response.json())
+      .then(response => {
+        this.setState({
+          users: response.users
+        })
+      })
+  }
+
   formatDate = date => {
     var monthNames = [
       "",
@@ -52,8 +72,11 @@ class List extends React.Component {
   render() {
     const likeTweet = like(this.props.messageId);
     const dMessage = deleteMessage(this.props.messageId);
+    
+    
 
     return (
+      
       <React.Fragment>
         <div className="ui medium feed segment">
           <div className="event">
@@ -65,8 +88,8 @@ class List extends React.Component {
             </div>
             <div className="content">
               <div className="date">{this.formatDate(this.props.date)}</div>
-              <div className="summary">
-                {/* <a>User: {this.props.userId}</a> */}
+              <div>
+                <p className="userId"> User: {this.props.userId} </p>
               </div>
               <div className="extra text">{this.props.text}</div>
               <div className="meta">
@@ -87,4 +110,11 @@ class List extends React.Component {
   }
 }
 
-export default connect()(List);
+const mapStateToProps = state => ({
+  username: state.userData.username,
+})
+
+
+export default connect(
+  mapStateToProps,
+)(List);
