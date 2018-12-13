@@ -143,6 +143,12 @@ li {
     margin-top: 15px !important;
 }
 
+.messages-list {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 2%;
+}
+
 .link, .link:hover {
     font-weight: bold;
     color: #A00099;
@@ -170,6 +176,7 @@ li {
 
 .userHomepageInfo {
     background-color: lightblue;
+    padding: 10px;
 }
 
 .userCard {
@@ -189,4 +196,154 @@ li {
 
 .delete-button {
     width: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+        width: 100%;
+    }
+
+    .login, .register {
+        width: 100%;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .octo {
+        width: 250px;
+    }
+    
+    .input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    
+    .navTitle {
+        padding: 50px 0 !important;
+    }
+    
+    .navBarLinks {
+        padding-right: 0px;
+        margin: 7px 25px 7px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+    }
+
+    .navBar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        margin-left: 26%;
+    }
+    
+    .userHomepage {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .userCard {
+        margin: auto;
+    }
+    
+    .userFeed {
+        margin: auto;
+        width: 500px;
+    }
+
+    .ui.card {
+        width: 500px;
+    }
+
+    .ui.image {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        width: 100%;
+    }
+
+    .login, .register {
+        width: 100%;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .octo {
+        max-width: 150px;
+        margin: auto;
+    }
+    
+    .input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    
+    .submit-button {
+        width: 70%;
+    }
+    
+    .navTitle {
+        font-size: 60px;
+        -webkit-text-stroke-color: #0020C2;
+        -webkit-text-stroke-width: 2px;
+        padding: 20px 10px 50px 0 !important;
+    }
+    
+    .navBarLinks {
+        padding-left: 0px;
+        padding-right: 0px;
+        margin: 7px 25px 7px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+    }
+
+    .navBar {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        margin: auto;
+    }
+    
+    .userHomepage {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: auto;
+    }
+    
+    .userCard {
+        margin: auto;
+    }
+    
+    .userFeed {
+        margin: auto;
+        width: 95%;
+    }
+
+    .ui.card {
+        width: 100%;
+    }
+
+    .ui.image {
+        width: 100%;
+    }
 }

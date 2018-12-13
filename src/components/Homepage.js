@@ -55,16 +55,12 @@ class Homepage extends Component {
             onChange={this.handleOnChange}
             // value={this.state.text}
           />
-          <Button onClick={this.handleSubmit} type="submit">
+          <Button className="submit-button" onClick={this.handleSubmit} type="submit">
             Submit
           </Button>
           <Feed>
             <hr />
             <Messages />
-            <Feed.Event>
-              <Feed.Label image={octojpg} />
-            </Feed.Event>{" "}
-            */}
           </Feed>
           <hr />
         </div>
@@ -73,12 +69,7 @@ class Homepage extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addTweet: tweet => dispatch(addTweet(tweet)),
-    GetUserByID: () => dispatch(getUserByID())
-  };
-};
+
 
 const mapStateToProps = state => ({
   loggedInUser: state.loggedInUser,
@@ -87,6 +78,13 @@ const mapStateToProps = state => ({
   about: state.userData.about,
   numOfPosts: state.userData.messages.length
 });
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addTweet: tweet => dispatch(addTweet(tweet)),
+    GetUserByID: () => dispatch(getUserByID())
+  };
+};
 
 export default connect(
   mapStateToProps,
