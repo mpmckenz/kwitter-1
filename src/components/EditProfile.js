@@ -16,8 +16,8 @@ class EditProfile extends React.Component {
             <input className="input" placeholder="name" />
           </Form.Field>
           <Form.Field>
-            <input className="input" placeholder="Update Password" />
-            <input className="input" placeholder="Re-enter New Password" />
+            <input className="input" type="password" placeholder="Update Password" />
+            <input className="input" type="password" placeholder="Re-enter New Password" />
           </Form.Field>
           <Button className="submit-button" type="submit">
             Update Profile
