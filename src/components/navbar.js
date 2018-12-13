@@ -48,7 +48,6 @@ class Navbar extends React.Component {
             className={
               this.props.pathname === "/edit" ||
               this.props.pathname === "/home" ||
-              this.props.pathname === "/logout" ||
               this.props.pathname === "/register"
                 ? "hide"
                 : ""
@@ -60,7 +59,9 @@ class Navbar extends React.Component {
           </li>
           <li
             className={
-              this.props.pathname === "/register" || this.props.pathname === "/"
+              this.props.pathname === "/register" ||
+              this.props.pathname === "/" ||
+              this.props.pathname === "/logout"
                 ? "hide"
                 : ""
             }
@@ -73,6 +74,7 @@ class Navbar extends React.Component {
             className={
               this.props.pathname === "/register" ||
               this.props.pathname === "/" ||
+              this.props.pathname === "/logout" ||
               this.props.pathname === "/home"
                 ? "hide"
                 : ""
@@ -84,16 +86,13 @@ class Navbar extends React.Component {
           </li>
           <li
             className={
-              this.props.pathname === "/register" ||
-              this.props.pathname === "/edit" ||
-              this.props.pathname === "/logout" ||
-              this.props.pathname === "/home"
-                ? "hide"
-                : ""
+              // this.props.pathname === "/" ||
+              // this.props.pathname === "/logout" ||
+              this.props.pathname === "/register" ? "hide" : ""
             }
           >
-            <Link to="/register" id="registerLink">
-              Signup
+            <Link to="/register" id="logoutLink">
+              Sign up
             </Link>
           </li>
           <li
