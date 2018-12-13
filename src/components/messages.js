@@ -59,7 +59,7 @@ class Messages extends Component {
     
 
     ;
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <React.Fragment>
         <div className="messages-list">
