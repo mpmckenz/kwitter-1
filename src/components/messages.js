@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import List from './list.js';
+import { getUserByID } from "../Actions/homepageAction.js";
 
 
 const PHOTO_LIST_URL = "https://picsum.photos/list";
@@ -43,7 +44,9 @@ class Messages extends Component {
         this.setState({
           users: response.users
         })
+        // dispatch(getUserByID())
       })
+      
 
   }
 
